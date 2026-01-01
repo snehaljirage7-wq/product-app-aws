@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/snehaljirage7-wq/product-app-aws.git'
+                git branch: 'main', url: 'https://github.com/snehaljirage7-wq/product-app-aws'
             }
         }
  
