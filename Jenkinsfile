@@ -12,29 +12,28 @@ pipeline {
 
     stages {
 
-        stage('Clean stage') {
+        stage('Checkout') {
             steps {
-                dir('product-app-aws') {
-                    bat 'mvn clean'
-                }
+                checkout scm
             }
         }
 
-        stage('Compile stage') {
+        stage('Clean') {
             steps {
-                dir('product-app-aws') {
-                    bat 'mvn compile'
-                }
+                bat 'mvn clean'
             }
         }
 
-        stage('Install stage') {
+        stage('Compile') {
             steps {
-                dir('product-app-aws') {
-                    bat 'mvn install'
-                }
+                bat 'mvn compile'
             }
         }
 
+        stage('Install') {
+            steps {
+                bat 'mvn install'
+            }
+        }
     }
 }
