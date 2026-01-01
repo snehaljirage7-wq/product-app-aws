@@ -1,44 +1,32 @@
-
 pipeline {
-    agent any
- 
-    tools {
-        maven 'Maven3' // Make sure Maven is installed in Jenkins
-        jdk 'Java11'   // Make sure JDK is installed in Jenkins
-    }
- 
-    stages {
-        stage('Checkout') {
-            steps {
-                git branch: 'main', url: 'https://github.com/snehaljirage7-wq/product-app-aws'
-            }
-        }
- 
-        stage('Build') {
-            steps {
-                sh 'mvn clean package'
-            }
-        }
- 
-        stage('Test') {
-            steps {
-                sh 'mvn test'
-            }
-        }
- 
-        stage('Deploy') {
-            steps {
-                echo "Deployment stage (Add your AWS/Server commands here)"
-            }
-        }
-    }
- 
-    post {
-        success {
-            echo 'Build & Test Successful!'
-        }
-        failure {
-            echo 'Build Failed!'
-        }
-    }
+agent any
+environment {
+    JAVA_HOME="C:/jdk-21.0.8"
+  }
+stages {
+stage('Clean stage') {
+steps {
+dir("StockApp") {
+bat 'C:/apache-maven-3.9.9/bin/mvn clean'
+}
+}
+}
+
+stage('Compile stage') {
+steps {
+dir("StockApp") {
+bat 'C:/apache-maven-3.9.9/bin/mvn compile'
+}
+}
+}
+
+stage('Install stage') {
+steps {
+dir("StockApp") {
+bat 'C:/apache-maven-3.9.9/bin/mvn install'
+}
+}
+}
+
+}
 }
