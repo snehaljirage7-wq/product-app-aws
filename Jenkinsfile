@@ -6,7 +6,7 @@ environment {
 stages {
 stage('Clean stage') {
 steps {
-dir("StockApp") {
+dir("product-app-aws") {
 bat 'C:/apache-maven-3.9.9/bin/mvn clean'
 }
 }
@@ -14,7 +14,7 @@ bat 'C:/apache-maven-3.9.9/bin/mvn clean'
 
 stage('Compile stage') {
 steps {
-dir("StockApp") {
+dir("product-app-aws") {
 bat 'C:/apache-maven-3.9.9/bin/mvn compile'
 }
 }
@@ -22,7 +22,7 @@ bat 'C:/apache-maven-3.9.9/bin/mvn compile'
 
 stage('Install stage') {
 steps {
-dir("StockApp") {
+dir("product-app-aws") {
 bat 'C:/apache-maven-3.9.9/bin/mvn install'
 }
 }
