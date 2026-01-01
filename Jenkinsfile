@@ -3,11 +3,14 @@ agent any
 environment {
     JAVA_HOME="C:/jdk-21.0.7"
   }
+    tools {
+        maven 'Maven_3.6.3'
+    }
 stages {
 stage('Clean stage') {
 steps {
 dir("product-app-aws") {
-bat '"C:/Users/SJ68573/apache-maven-3.6.3-bin 3/apache-maven-3.6.3/bin/mvn" clean'
+bat 'mvn clean'
 }
 }
 }
@@ -15,7 +18,7 @@ bat '"C:/Users/SJ68573/apache-maven-3.6.3-bin 3/apache-maven-3.6.3/bin/mvn" clea
 stage('Compile stage') {
 steps {
 dir("product-app-aws") {
-bat '"C:/Users/SJ68573/apache-maven-3.6.3-bin 3/apache-maven-3.6.3/bin/mvn" compile'
+bat 'mvn compile'
 }
 }
 }
@@ -23,7 +26,7 @@ bat '"C:/Users/SJ68573/apache-maven-3.6.3-bin 3/apache-maven-3.6.3/bin/mvn" comp
 stage('Install stage') {
 steps {
 dir("product-app-aws") {
-bat '"C:/Users/SJ68573/apache-maven-3.6.3-bin 3/apache-maven-3.6.3/bin/mvn" install'
+bat 'mvn install'
 }
 }
 }
