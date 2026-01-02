@@ -1,7 +1,7 @@
 pipeline {
 agent any
 environment {
-    JAVA_HOME="C:\Program Files\Java\jdk-21.0.9"
+    JAVA_HOME="JAVA_HOME = "C:/Program Files/Java/jdk-21.0.9"
   }
 stages {
 stage('Clean stage') {
